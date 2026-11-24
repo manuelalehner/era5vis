@@ -11,13 +11,6 @@ example packages [scispack](https://github.com/fmaussion/scispack) and
 
 ## HowTo
 
-Make sure you have all dependencies installed. These are:
-- numpy
-- xarray
-- netcdf4
-- matplotlib
-- pytest
-
 Download the package and install it in development mode. In the root directory
 type:
 
@@ -25,7 +18,7 @@ type:
 
 ## Command line interface
 
-``setup.py`` defines an "entry point" for a script to be used as a
+``pyproject.toml`` defines an "entry point" for a script to be used as a
 command line program. Currently, the only command installed is ``era5vis_modellevel``.
 
 After installation, just type
@@ -42,10 +35,3 @@ the package, run
     $ pytest .
 
 in the package's root directory.
-
-
-## License
-
-With the exception of the ``setup.py`` file, which was adapted from the
-[sampleproject](https://github.com/pypa/sampleproject) package, all the
-code in this repository is dedicated to the public domain.

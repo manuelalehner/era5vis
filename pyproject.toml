@@ -1,5 +1,60 @@
 #See: https://packaging.python.org/en/latest/guides/writing-pyproject-toml
 
 [build-system]
-requires = ['setuptools >= 61.0']
+requires = ['setuptools']
 build-backend = 'setuptools.build_meta'
+
+# [project] table is required
+[project]
+# name of the project (required)
+name = 'era5vis'
+version = '0.0.1'
+# one-line description
+description = 'A tool to visualize ERA5 data'
+readme = {file = 'README.md', content-type = 'text/markdown'}
+# license and license file
+license = 'Unlicense'
+license-files = ['LICENSE']
+# name and/or email address for authors and maintainers
+authors = [{name = 'Manuela Lehner'}]
+# python compatability
+requires-python = '>=3'
+keywords = ['example python package', 'era5 visualization']
+# for a list of valid classifiers, see https://pypi.org/classifiers/
+classifiers = [
+    # How mature is this project? Common values are
+    #   3 - Alpha
+    #   4 - Beta
+    #   5 - Production/Stable
+    'Development Status :: 3 - Alpha',
+
+    # Indicate who your project is intended for
+    'Intended Audience :: Developers',
+    'Topic :: Software Development :: Build Tools',
+
+    # Specify the Python versions you support here. In particular, ensure
+    # that you indicate whether you support Python 2, Python 3 or both.
+    'Programming Language :: Python :: 3',
+]
+# other packages that are needed, will be installed automatically
+dependencies = ['numpy', 'xarray', 'matplotlib', 'netCDF4']
+
+[project.optional-dependencies]
+dev = ['pytest']
+
+# Homepage, Documentation, Repository, Issues, Changelog
+[project.urls]
+Repository = 'https://github.com/manuelalehner/era5vis'
+
+# to create executable scripts which will be available as a command
+[project.scripts]
+era5vis_modellevel = 'era5vis.cli:era5vis_modellevel'
+
+# which packages to include in the build
+[tool.setuptools.packages.find]
+where = ['.'] # default, can be omitted
+exclude = ['data', 'tests']
+
+# data files that need to be installed
+[tool.setuptools.package-data]
+era5vis = ['data/template.html']
